@@ -1,9 +1,9 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  labels:
-    control-plane: cluster-api-controller-manager
-  name: system
+# apiVersion: v1
+# kind: Namespace
+# metadata:
+#   labels:
+#     control-plane: cluster-api-controller-manager
+#   name: cluster-api-system
 ---
 apiVersion: apps/v1
 kind: Deployment
