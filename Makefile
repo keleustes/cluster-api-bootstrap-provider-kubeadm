@@ -27,14 +27,14 @@ GOPROXY := https://proxy.golang.org
 endif
 export GOPROXY
 
-REGISTRY ?= gcr.io/$(shell gcloud config get-value project)
 # A release does not need to define this
 MANAGER_IMAGE_NAME ?= cluster-api-bootstrap-provider-kubeadm
 MANAGER_IMAGE_TAG ?= dev
 PULL_POLICY ?= Always
 
 # Define Docker related variables. Releases should modify and double check these vars.
-REGISTRY ?= gcr.io/$(shell gcloud config get-value project)
+# REGISTRY ?= gcr.io/$(shell gcloud config get-value project)
+REGISTRY ?= keleustes
 STAGING_REGISTRY := gcr.io/k8s-staging-capi-kubeadm
 PROD_REGISTRY := us.gcr.io/k8s-artifacts-prod/capi-kubeadm
 IMAGE_NAME ?= cluster-api-kubeadm-controller
@@ -133,7 +133,7 @@ modules: ## Runs go mod to ensure modules are up to date.
 
 .PHONY: docker-build
 docker-build: ## Build the docker image for controller-manager
-	docker build --pull --build-arg ARCH=$(ARCH) . -t $(CONTROLLER_IMG)-$(ARCH):$(TAG)
+	docker build --network=host --pull --build-arg ARCH=$(ARCH) . -t $(CONTROLLER_IMG)-$(ARCH):$(TAG)
 	MANIFEST_IMG=$(CONTROLLER_IMG)-$(ARCH) MANIFEST_TAG=$(TAG) $(MAKE) set-manifest-image
 
 .PHONY: docker-push
