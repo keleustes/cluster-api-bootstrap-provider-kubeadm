@@ -54,7 +54,6 @@ replace (
 	k8s.io/legacy-cloud-providers => k8s.io/legacy-cloud-providers v0.0.0-20191003003732-7d49cdad1c12
 	k8s.io/metrics => k8s.io/metrics v0.0.0-20191003002233-837aead57baf
 	k8s.io/sample-apiserver => k8s.io/sample-apiserver v0.0.0-20191003001538-80f33ca02582
-	sigs.k8s.io/cluster-api => github.com/keleustes/cluster-api v1.16.2
+	sigs.k8s.io/cluster-api => github.com/keleustes/cluster-api v1.16.10
 	sigs.k8s.io/controller-runtime => github.com/keleustes/controller-runtime v1.16.2
-// sigs.k8s.io/kustomize/v3 => github.com/keleustes/kustomize/v3 v3.16.8
 )
